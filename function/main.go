@@ -52,7 +52,7 @@ func main() {
 	})
 	fmt.Println(resultado)
 
-	fmt.Println("\n-----FUNCIONES QUE RECIBEN FUNCIONES--------")
+	fmt.Println("\n-----FUNCIONES QUE REGRESAN FUNCIONES--------")
 	//primera forma
 	/* x := hola("Aldo Ivan")() //Con los último parentesis, ejecuta la segunda función
 	fmt.Println(x) */
