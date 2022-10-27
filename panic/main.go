@@ -12,7 +12,7 @@ func main() {
 
 }
 func division(dividendo, divisor int) {
-	//aqui se ejecuta el recover
+	//aqui se ejecuta el recover y siempre va con un defer para que tenga sentido
 	defer func() {
 		r := recover() //me devuelve un valor del panic
 		if r != nil {  //solo se ejecutara si hay un panic
