@@ -65,6 +65,6 @@ GOPATH: Es una variable
 		5.- Encontramos la carpeta que se descargo: src.io. Es el dominio donde se encuentra el repositorio que clonamos
 		6.- Ingresar a la carpeta y listamos y
 		7.- Deberíamos encontrar el paquete que estamos usando y su versión en mi caso : quote@v1.5.2
-		8.-
+
 
 */
