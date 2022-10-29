@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/Aldoihm/go/greet"
 )
 
 func main() {
-	fmt.Println("Hello")
+	fmt.Println(greet.Italian())
 
 }
 
