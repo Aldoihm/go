@@ -4,14 +4,13 @@ import (
 	"fmt"
 
 	"github.com/Aldoihm/go/greet"
-	"rsc.io/quote"
-	quoteV3 "rsc.io/quote/v3"
+	"rsc.io/quote/v3"
 )
 
 func main() {
 	fmt.Println(greet.Italian())
-	fmt.Println(quote.Hello())
-	fmt.Println(quoteV3.Concurrency())
+	fmt.Println(quote.HelloV3())
+	fmt.Println(quote.Concurrency())
 
 }
 
