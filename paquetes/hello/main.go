@@ -5,11 +5,13 @@ import (
 
 	"github.com/Aldoihm/go/greet"
 	"rsc.io/quote"
+	quoteV3 "rsc.io/quote/v3"
 )
 
 func main() {
 	fmt.Println(greet.Italian())
 	fmt.Println(quote.Hello())
+	fmt.Println(quoteV3.Concurrency())
 
 }
 
@@ -35,9 +37,7 @@ NOTAS IMPORTANTES PORQUE TUVE VARIOS ERRORES
 link donde se encontraba alojado el repositorio
 https://pkg.go.dev/rsc.io/quote
 
-go build: genera un archivo ejecutable o binario
-		  Este comando se ejecuta en el directorio donde esté el main.go de nuestra app
-OJO, ESTE COMANDO NO ME FUNCIONO, ME FUNCIONO EL COMANDO DE ABAJO
+
 RESUELTO:
 	1.-Ejecuta el comando go get que se muestra abajo
 	2.-Ejecuta el comando go build para generear el ejecutable
@@ -51,6 +51,10 @@ go get rsc.io/quote:
 	Dependencias indirectas: los paquetes que necesitaba el paquete que descargamos (sample, text)
 	4.- Tabien el archivo go.sum lleva el control de las versiones de los paquetes a través de un hash, que es un id pero el teacher les dice hash
 	Con el fin de asegurar que no se han modificado los paquetes de forma accidental o forma maliciosa
+	NOTA: Después de ejecutar este comando, nos aparecerá las funciones después de que coloquemos el punto. de las nuevas dependencias
+
+go build: genera un archivo ejecutable o binario
+	Este comando se ejecuta en el directorio donde esté el main.go de nuestra app
 */
 
 /* Ver donde se descarga nuestros paquetes de terceros
