@@ -10,7 +10,13 @@ func main() {
 	food[2] = "🌭"
 	fmt.Println(food) */
 
-	food := [3]string{"🍔", "🍕", "🌭"}
+	/*food := [3]string{"🍔", "🍕", "🌭"}*/
+
+	//para que GO pueda inferir el tamaño del array se hace de esta manera y cambiará el tamañao según el número
+	//de elementos;
+
+	food := [...]string{"🍔", "🍕", "🌭", "🥗", "🍑"}
 	fmt.Println(food)
 
+	//NOTA: 1 vez que GO ya determinó el tamaño del array, este no puede ser modificado.
 }
