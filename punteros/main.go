@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	//Variablaes que almacenan la dirección en memoria de un valor
 	fruit := "🍌"
 	//Variable de tipo puntero
 	var p *string
