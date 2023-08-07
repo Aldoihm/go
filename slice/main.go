@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-//slice permite trabajar con arrays de forma dinámica
-//slice son apuntadores de arrays
-//los apuntadores no almacenan ningun dato
+// slice permite trabajar con arrays de forma dinámica
+// slice son apuntadores de arrays
+// los apuntadores no almacenan ningun dato
 func main() {
 	fmt.Println("PRIMERA PARTE")
 	set := [7]string{"🦁", "🐎", "🐄", "🦋", "🦜", "🛩️", "🛫"}
@@ -17,13 +17,22 @@ func main() {
 	todo := set[:] //Go entiende que empiezo desde 0 y termino en 7
 	fmt.Println("Array: ", set)
 	fmt.Println("Animales: ", animals)
-	fly[0] = "🦅"
 	fmt.Println("Voladores: ", fly)
 	fmt.Println("Todo: ", todo)
+	//acceder a un valor del slice
+	fmt.Println("fly[0]:", fly[0])
+	//Editamos fly en la posición 0
+	fly[0] = "🦅"
+	fmt.Println("Valor de fly[0] después de ser editado:", fly[0])
 
 	// NOTA IMPORTANTE: Recordar que los slice, en el último valor en la declaración es excluyente
 
 	//Los dos puntos es propio del array, no de los slice
+	//Se vuelve a imprimir, para observar que desde el slice se modifica el array y afecta a los demás punteros.
+	fmt.Println("Array: ", set)
+	fmt.Println("Animales: ", animals)
+	fmt.Println("Voladores: ", fly)
+	fmt.Println("Todo: ", todo)
 
 	//PARTE 2
 
