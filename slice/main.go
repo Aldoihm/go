@@ -41,32 +41,40 @@ func main() {
 	fmt.Println("\n\nSEGUNDA PARTE")
 	food := [5]string{"🌭", "🍓", "🍋", "🍔", "🍕"}
 	fruits := food[1:3] //"🍓","🍋"
-	//agregar un elemento al slice
+	//agregar elemtos al slice con la función append (esto se usa cuando exedemos la capacidad del array original)
 	fruits = append(fruits, "🍍", "🍈", "🍎")
-	//Si agregamos al slice <= elementos del array original entonces
-	//Array[4]{"🍓", "🍋", "🍔", "🍕"}
-	//Sino
+	//Esto pasa antes de la función append
+	//El slice fruits referencia a un array de tamaño 4
+	//Array[4]{"🍓", "🍋", "🍔", "🍕"}.
+	//Esto pasa después de la función append y que exedimos el número de elementos del array original
+	//El slice fruits referencia a un nuevo array.
 	//NewArray[8]{"🍓","🍋","🍍", "🍈", "🍎"} Se multiplico el array x 2
+	//NOTA IMPORTANTE: EL QUE HACE QUE SE REFERENCIE A UN ARRAY NUEVO ES LA FUNCIÓN APPEND. ESTA FUNCIÓN ES LA RESPONSABLE DEL DESMADRE
+
 	fmt.Println("Food: ", food)
 	fmt.Println("Fruits: ", fruits)
 	fmt.Println("# de elementos en el slice Fruit: ", len(fruits))
 	fmt.Println("# de elementos del array a partir del índice (CAPACIDAD): ", cap(fruits))
+
 	//para declarar un slice haciendo referencia a un array nuevo
 	//corchetes vacíos = slice, corchetes con número = array
 	fmt.Println("\n\nCreando Sclice vacío")
 	//fruta := []string{"🍓", "🍋"} Se crea un slice de tamaño 2 y capacidad 2
 	fruta := make([]string, 0, 3) //se crea un slice con tamaño 0 y capacidad de 3
+
 	fruta = append(fruta, "🍍", "🍓", "🍋", "🍎")
 	fmt.Println("Fruta: ", fruta)
 	fmt.Println("# de elementos en el slice Fruta: ", len(fruta))
 	fmt.Println("# de elementos del array a partir del índice (CAPACIDAD): ", cap(fruta))
 
 	//Creando Slice Vacios
+	fmt.Println("Creando slice vacíos con valor a nulo o también conocido como valor nil")
 	var slice []string
 	//slice:=[]string{} No es lo mismo que el de arriba, arriba es nulo, este ya esta inicializado
+	//Esto sirve para saber si un slice tiene valor cero o no
 	fmt.Println("slice: ", slice)
 	fmt.Println("# de elementos en el slice Slice: ", len(slice))
 	fmt.Println("# de elementos del array a partir del índice (CAPACIDAD): ", cap(slice))
 	//nil == a nulo
-	fmt.Println(slice == nil)
+	fmt.Println("valor cero:", slice == nil)
 }
