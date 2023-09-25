@@ -5,9 +5,9 @@ import "fmt"
 func main() {
 	//En go solo existe una funcion para trabajar con ciclos, y es for, no existe do while. do , while
 	// 1.- for clasico
-	/* for i := 0; i <= 10; i++ {
+	/*for i := 0; i <= 5; i++ {
 		fmt.Println(i)
-	} */
+	}*/
 	// 2.- for continuo == while en otros lenguajes de programación
 	/* j := 0
 	for j <= 10 {
@@ -32,6 +32,12 @@ func main() {
 		fmt.Printf("Índice : %v, Valor : %v\n", i, v)
 	}
 
+	//aquí vamos a especificar el slice dentro del for
+
+	for i, v := range []string{"🍕", "🍔", "🍎", "🌭"} {
+		fmt.Println("indice: ", i, "valor: ", v)
+	}
+
 	for i := range nums { //como v no la uso, la puedo eliminar
 		nums[i] *= 2
 	}
@@ -45,8 +51,8 @@ func main() {
 
 	//4.3.- FOR RANGE STRING
 	fmt.Println("\n------------FOR RANGE STRINGS-----------")
-	hello := "hello"
-	for _, v := range hello {
-		fmt.Println(string(v)) //se castea con string, porque si no nos da el valor pero en byte
+	hello := "Sotec Móvil"
+	for i, v := range hello {
+		fmt.Println("indice[", i, "] valor: ", string(v)) //se castea con string, porque si no nos da el valor pero en byte
 	}
 }
