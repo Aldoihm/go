@@ -12,7 +12,7 @@ func main() {
 	default:
 	} */ //no es necesario la palabra reservada break
 
-	emoji := "🐺"
+	emoji := "🦹‍♂️"
 	/* switch emoji {
 	case "🐈", "🐕", "🐺":
 		fmt.Println("es un animal")
@@ -32,7 +32,10 @@ func main() {
 	}
 	*/
 
+	canSearch := true
 	switch {
+	case !canSearch:
+		fmt.Println("No está permitdo la busqueda")
 	case emoji == "🐈" || emoji == "🐕" || emoji == "🐺":
 		fmt.Println("es un animal")
 	case emoji == "🍌" || emoji == "🍎":
