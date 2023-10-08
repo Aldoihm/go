@@ -69,8 +69,8 @@ func main() {
 
 	//Creando Slice Vacios
 	fmt.Println("Creando slice vacíos con valor a nulo o también conocido como valor nil")
-	var slice []string
-	//slice:=[]string{} No es lo mismo que el de arriba, arriba es nulo, este ya esta inicializado
+	//var slice []string
+	slice := []string{} //No es lo mismo que el de arriba, arriba es nulo, este ya esta inicializado
 	//Esto sirve para saber si un slice tiene valor cero o no
 	fmt.Println("slice: ", slice)
 	fmt.Println("# de elementos en el slice Slice: ", len(slice))

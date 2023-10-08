@@ -57,8 +57,10 @@ func main() {
 	/* x := hola("Aldo Ivan")() //Con los último parentesis, ejecuta la segunda función
 	fmt.Println(x) */
 	//segunda forma
-	x := hola("Aldo Iván")
-	fmt.Println(x("Hernández Marín")) //con los parentesis de x, manda a ejecutar la funcion de x
+	x := hola("Aldo Iván y ")
+	fmt.Println(x("María Guadalue")) //con los parentesis de x, manda a ejecutar la funcion de x
+	fmt.Println(x("Hans Alarcon"))
+	fmt.Println(x("Mario Castillo"))
 
 	fmt.Println("\n-----FUNCIONES VARIATICAS-------------------")
 	fmt.Println(suma(10, 5, 15, 20, 2, 3))
@@ -112,7 +114,7 @@ func div(dividendo, divisor int) (result int, err error) { //colocando nombre a 
 // Las funciones pueden recibir funciones y retornar funciones
 // Esta función recibe una función
 func filter(nums []int, callback func(int) bool) []int {
-	result := []int{}
+	result := make([]int, 0, len(nums))
 	for _, v := range nums {
 		if callback(v) {
 			result = append(result, v)
