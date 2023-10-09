@@ -63,7 +63,9 @@ func main() {
 	fmt.Println(x("Mario Castillo"))
 
 	fmt.Println("\n-----FUNCIONES VARIATICAS-------------------")
-	fmt.Println(suma(10, 5, 15, 20, 2, 3))
+	fmt.Println(suma(10, 5, 15, 20, 2, 3, 7, 6, 8))
+	fmt.Println(suma(4, 15, 1))
+	fmt.Println(suma(-50, -10, -11, -34))
 
 	fmt.Println("\n-----FUNCIONES ANONIMAS---------------------")
 	y := func() {
