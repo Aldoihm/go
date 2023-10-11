@@ -28,12 +28,13 @@ func main() {
 		return
 	}
 	defer file.Close()
-	_, er := file.Write([]byte("Hello Gophers")) //Escribe en el archivo y devuelve 2 resultados
-	//1.- número de bytes que fueron escritos
+	no_byte, er := file.Write([]byte("Hola Sotec")) //Escribe en el archivo y devuelve 2 resultados
+	//1.- número de bytes que fueron escritos (una letra, un espacio, un enter es un byte (8bits))
 	//2.- un error
 	if er != nil {
 		fmt.Printf("Ocurrio un error al escribir el archivo: %v \n", er)
 		return
 	}
+	println("Tamaño en byte: ", no_byte)
 
 }
