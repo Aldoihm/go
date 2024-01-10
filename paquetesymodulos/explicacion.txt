@@ -1,0 +1,72 @@
+PAQUETE: es una carpeta con archivos a dentro para proporcionar una funcionalidad en específico
+Dentro del paquete no se necesita que esté adentro el archivo main.go, ya que este archivo usa el paquete, por lo tanto nunca debe estar adentro
+Notas:
+    -Todos los archivos que están adentro del paquete(carpeta) debe contener la palabra package nombre_paquete (osea de la carpeta)
+    -El nombre del paquete debe ser exactamente igual al nombre de la carpeta
+    Ejemplo:
+
+Carpeta: slices
+    archivo: filter.go
+        inicio del archivo: package slices (fijarse que el nombre del paquete es igual al nombre de la carpeta que contiene el paquete)
+    archivo: includes.go
+        inicio del archivo: package slices
+    archivo: slices.go
+        inicio del archivo: package slices
+
+VARIABLES Y FUNCIONES:
+Todas las funciones y variables que en su nombre(identificador) empiecen con letras MINÚSCULAS:
+    -Solo se podran usar dentro del mismo paquete
+    -Ejemplos: 
+        const pkgName = "slices"
+        func log (msg string){}
+Todas las funciones y variables que en su nombre(identificador) empiecen con letras MAYÚSCULAS:
+    -Se puedem usar fuera del paquete (osea los archivos main.go que importen dichos paquetes)
+    -Ejemplo:
+        func Includes[T comparable](list []T, value T) bool{retur true}
+        func Filter(){}
+
+NOMBRE DEL PAQUETE: 
+No puede ser cualquier nombre, el nombre del paquete debe de especificar que es lo que hace el paquete.
+No puede ser redundante en el nombre ejemplo:
+    Forma incorrenta: slices.SlicesFilter()
+    Forma correcta: slices.Filter()
+
+MODULO: Para crear un modulo, se debe subir el paquete recien creado a un repositorio remoto (osea github). Ya que go trabaja con github
+REGLA IMPORTANTE: para cada paquete, se debe tener su propio git init, ya que NO SE PUEDE TENER VARIOS PAQUETES EN UN SOLO GIT INIT.
+                tampoco NO SE PUEDE TENER EN UN REPOSITORIO REMOTO VARIOS PAQUETES
+                por lo tanto UN REPOSITORIO REMOTO = UN SOLO PAQUETE.
+Ejemplo
+carpeta raiz: modulo
+        carpeta del paquete: slices
+                archivos dentro del paquete:filter.go
+                                            includes.go
+                                            slices.go
+        archivo dentro de carpeta raiz: main.go
+        Se ejecuta en este nivel: git init
+        Se crea el repositorio en github y sejecuntan las demás instrucciones para subir el repositorio...
+        git branch -M main (por si se llama master la rama)
+        git remote add origin git@github:..../modulo.git
+        git push -u origin main
+
+repositorio de github
+Se crear el repositorio con el mismo nombre de la carpeta raiz:modulo
+
+--Aqui termina el ejemplo
+
+Para importar el modulo recien creado es necesario ejecutar las siguientes instrucciones al mismo nivel donde se encuentra el directorio main.go
+1.- go mod init main: main es el nombre del modulo 
+2.- se crear el archivo go.mod: adentro viene el directorio del modulo importado y la version de go usado
+3.- en el archivo main.go importamos  en import y la direccion url del paquete + el nombre del paquete ejemplo:
+    import "github.com/Aldoihm/module-example/slices"
+4.- se ejecuta go mod tidy: con esta instrucción se importa el paquete de tercero en este caso goland.org/x/exp/constraints
+5.- se crea el archivo go.sum, donde se especifica todo lo que se ha importado
+6.- ya se puede ejecutar el programa
+
+resumen:
+1.- go mod init main
+2.- go mod tidy
+
+NOTA IMPORTANTE: Si quieres descargar más paquetes, puedes volver a ejecutar: go mod tidy para descargar los nuevos paquetes
+
+Debo practicar.
+
