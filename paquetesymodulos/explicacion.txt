@@ -70,3 +70,57 @@ NOTA IMPORTANTE: Si quieres descargar más paquetes, puedes volver a ejecutar: g
 
 Debo practicar.
 
+go list -m all: Comando para mostrar la lista de modulos que está usando nuestro programa junto con su version
+go mod graph : Comando para mostrar que modulos están importando los otros módulos.
+Versionamiento Semantico:
+V1.0.0 --> Versión que está en desarrollo y que por lo tanto no se debería usar
+V1.0.1 --> Versión donde se encuentran y corrigen bugs, pero que no afecta al usuario final(version patch)
+v1.1.0 --> Versión donde se realiza una nueva actualización, pero que no rompe compatibilidad con la versión anterior (nuevos modulos)(versión menor)
+v1.1.1 --> Versión donde se encuentra y corrige bugs
+v2.0.0 --> Versión que rompe compatibilidad con la versión anterior y que por lo tanto deberían actualizar(versión mayor)
+v2.4.10-pre --> Versión de prelanzamiento (no es la ultima versión oficial)
+
+Comando para ver todas las versiones disponibles de un paquete:
+go list -m -versions nombre_paquete_a_consultar
+go list -m -versions rsc.io/quote
+
+cuales son los comandos para ver los paquetes que se importan de manera indirecta?
+primero buscamos la directorio donde se instala go
+1.- go env GOPATH
+2.- Entramos a la dirección que nos arroja: cd /Users/aldo/go
+3.- vamos a entrar a la siguiente direción: cd pkg/mod
+4.- ll: para ver que ahí se encuentran todos los paquetes que se importan y su vez adentro las versiones.
+5.- en mi caso queria ver los paquetes que importa el paquete rsc.io/quote@v1.5.2
+6.- cd rsc.io/quote@v1.5.2
+7.- ll: para verificar que se encuentra su archivo go.mod
+8.- para ver el archivo uso cat go.mod. y listo. Veo la palabra require y aparecen los paquetes que el importa
+
+Actualización de versiones menores
+Para actualizar el paquete a la últimva versión
+go get nombre_paquete: go get golang.org/x/text
+Para actualizar a una versión en específico
+go get nombre_paquete@vmayor.vmenor.vpatch : go get rsc.io/sampler@v1.3.1 
+
+Actualización de versiones mayores
+Antes de actualizar, ver los cambios de las funciones de la nueva version mayor a la anterior version mayor que tenemos instalado
+con la finalidad de dar un uso correcto a nuestra implementación
+1.- En el archivo main indicamos que importamos el nuevo paquete junto con la version y un alias. ejemplo
+    import (
+        "rsc.io/quote" -->version anterior
+        quoteV3 "rsc.io/quote/v3" --> (quoteV3 es el alias) version nueva
+        (se usa el alias porque el paquete rsc.io/quote, se repite y es necesario el alias para no crear confusion en go)
+    )
+    1.1.- Implementamos las nuevas funciones del paquete recien importado.
+2.-go mod tidy. --> para que importe la nueva version
+3.-Para ver las versiones del nuevo paquete importado:
+    go list -m -versions rsc.io/quote/v3
+
+Eliminar versiones anteriores que ya no usamos
+1.-Quitamos en import la versión anterior y el alias de la nueva versión porque ya no será necesario usar el alias
+    import(
+        "rsc.io/quote/v3" --> se deja solo la nueva versión y eliminamos el alias
+    )
+    1.1.- eliminamos las funciones usadas del paquete anterior y renombramos las nuevas funciones sin usar el alias ejemplo
+    1.2.- de usar quoteV3.HelloV3() --> pasa a quote.HelloV3() --> nota que ya se deja de usar el alias y solo se usa el nombre del paquete
+2.-go mod tidy --> también elimina las versiones que ya no usamos
+3.-para comprobar la nueva version y la version anterior que ya no esté usamos go list -m all
