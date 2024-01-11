@@ -124,3 +124,5 @@ Eliminar versiones anteriores que ya no usamos
     1.2.- de usar quoteV3.HelloV3() --> pasa a quote.HelloV3() --> nota que ya se deja de usar el alias y solo se usa el nombre del paquete
 2.-go mod tidy --> también elimina las versiones que ya no usamos
 3.-para comprobar la nueva version y la version anterior que ya no esté usamos go list -m all
+
+"Aqui se acaba el curso"
