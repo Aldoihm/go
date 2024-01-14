@@ -126,3 +126,48 @@ Eliminar versiones anteriores que ya no usamos
 3.-para comprobar la nueva version y la version anterior que ya no esté usamos go list -m all
 
 "Aqui se acaba el curso"
+
+Instalación de un programa de go
+1.- Se debe compilar el archivo:
+    1.- go build -o nombre : con el flag -o le indicas el nombre con el que se debe crear el ejecutable
+    2.- ./nombre --> asi pruebas si se ejecuto el comando de manera correcta
+
+2.- Debes asegurar que exista un directorio bin para tus programas de go con el comando.
+    1.- go env GOBIN
+En caso de que no te mande ningun directorio hacer lo siguiente, sino saltarse al paso 3
+
+    2.1.- go env GOPATH--> para saber cual es la direccion donde está instalado Go
+            En mi caso me arrojo el siguiente resultado: /Users/aldo/go
+    2.2.- go env -w GOBIN=Directorio_donde_esta_instalado_go/bin
+            En mi caso ejecute el siguiente comando: go env -w GOBIN=/Users/aldo/go/bin
+    2.3.- go env GOBIN --> te debe ya arrojar el directorio donde se almanenan las instalaciones de go
+            En mi caso me arrojo este resultado: /Users/aldo/go/bin
+3.- Posteriormente debemos ver si tenemos nuestra instalación de GOBIN en el PATH del sistema
+    1.- echo $PATH --> deberías encontrar la dirección que arroja cuando ejecutamos el comando
+                        go env GOBIN
+En caso de que no este nuesta dirección GOPATH en el $PATH del sistema, lo debemos incluir.
+Si ya está saltarse al paso 4, si no hacer esto.
+
+    3.1.- export PATH=$PATH:dirección_de_GOBIN
+        En mi caso el comando es este: export PATH=$PATH:/Users/aldo/go/bin
+    3.2.- echo $PATH --> con esto comprobamos que la ruta GOBIN se encuentre de nuestro $PATH
+
+4.- Buscamos donde quedaría instalado nuestro programa y con que nombre, antes de ser instalado
+    1.- go list -f '{{.Target}}'
+        En mi caso me arrojo esta dirección con el nombre main: /Users/aldo/go/bin/main
+
+5.- Una vez que aseguramos que la dirección se instalará dentro del directorio GOBIN,
+    procedemos hacer la instalación.
+    1.- go install
+En caso de que el nombre no es el esperado en mi caso no quiero que se llame main sino edls,
+entonces seguir los siguientes pasos
+1.- Ir al directorio de GOBIN en mi caso: cd /Users/aldo/go/bin
+2.- Procedemos a renombrar nuestro ejecutable
+    en mi caso: mv main edls
+3.- verificamos que ya esté renombrado con el comando ll, para que liste los ejecutables
+    en mi caso ya no está main sino edls
+
+6.- Para comprobrar que ya esta instalado nuestro programa, vamos a cualquier directorio y 
+    deberia funcionar escribiendo solo el nombre del programa en mi caso edls y ya debe servir.
+
+FIN. ASI SE INSTALA UN PROGRAMA EN GO
