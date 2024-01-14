@@ -127,7 +127,9 @@ Eliminar versiones anteriores que ya no usamos
 
 "Aqui se acaba el curso"
 
-Instalación de un programa de go
+--------------------------------------------------------------------------------------------------
+INSTALACION DE UN PROGRAMA DE GO
+
 1.- Se debe compilar el archivo:
     1.- go build -o nombre : con el flag -o le indicas el nombre con el que se debe crear el ejecutable
     2.- ./nombre --> asi pruebas si se ejecuto el comando de manera correcta
@@ -142,6 +144,7 @@ En caso de que no te mande ningun directorio hacer lo siguiente, sino saltarse a
             En mi caso ejecute el siguiente comando: go env -w GOBIN=/Users/aldo/go/bin
     2.3.- go env GOBIN --> te debe ya arrojar el directorio donde se almanenan las instalaciones de go
             En mi caso me arrojo este resultado: /Users/aldo/go/bin
+
 3.- Posteriormente debemos ver si tenemos nuestra instalación de GOBIN en el PATH del sistema
     1.- echo $PATH --> deberías encontrar la dirección que arroja cuando ejecutamos el comando
                         go env GOBIN
@@ -170,4 +173,12 @@ entonces seguir los siguientes pasos
 6.- Para comprobrar que ya esta instalado nuestro programa, vamos a cualquier directorio y 
     deberia funcionar escribiendo solo el nombre del programa en mi caso edls y ya debe servir.
 
-FIN. ASI SE INSTALA UN PROGRAMA EN GO
+NOTA IMPORTATE, AL CERRAR LA TERMINAL SE ELIMINA TU DIRECCIÓN GOBIN DEL $PATH DEL SISTEMA.
+por lo tanto tendria que cambiar la dirección GOBIN por la dirección:/usr/local/go/bin
+que es donde está instalado los bin de go del sistema para esto ejecuto los sig. comandos:
+1.- go env -w GOBIN=/usr/local/go/bin
+2.- sudo go install -->desde la dirección donde ya está la compilación y con permiso root
+    2.- escribimos el password
+3.- si es necesario renombrar el archivo
+4.- cerramos y abrimos la terminal para ver si funciona nuestro programa en cualquier lugar
+5.- en mi caso si me servio
