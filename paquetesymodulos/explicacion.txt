@@ -63,7 +63,7 @@ Para importar el modulo recien creado es necesario ejecutar las siguientes instr
 6.- ya se puede ejecutar el programa
 
 resumen:
-1.- go mod init main
+1.- go mod init github.com/Aldoihm/encapsulamiento
 2.- go mod tidy
 
 NOTA IMPORTANTE: Si quieres descargar más paquetes, puedes volver a ejecutar: go mod tidy para descargar los nuevos paquetes
@@ -173,6 +173,7 @@ entonces seguir los siguientes pasos
 6.- Para comprobrar que ya esta instalado nuestro programa, vamos a cualquier directorio y 
     deberia funcionar escribiendo solo el nombre del programa en mi caso edls y ya debe servir.
 
+--------------------------------------------------------------------------------------------
 NOTA IMPORTATE, AL CERRAR LA TERMINAL SE ELIMINA TU DIRECCIÓN GOBIN DEL $PATH DEL SISTEMA.
 por lo tanto tendria que cambiar la dirección GOBIN por la dirección:/usr/local/go/bin
 que es donde está instalado los bin de go del sistema para esto ejecuto los sig. comandos:
@@ -182,3 +183,6 @@ que es donde está instalado los bin de go del sistema para esto ejecuto los sig
 3.- si es necesario renombrar el archivo
 4.- cerramos y abrimos la terminal para ver si funciona nuestro programa en cualquier lugar
 5.- en mi caso si me servio
+
+--------------------------------------------------------------------------------------------
+NOTA IMPORTANTE, SEGUNDA FORMA PARA QUE TU DIRECCIÓN GOBIN NO SE ELIMINE DEL $PATH, LO HICE EN UBUNTU

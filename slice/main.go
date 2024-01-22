@@ -76,5 +76,5 @@ func main() {
 	fmt.Println("# de elementos en el slice Slice: ", len(slice))
 	fmt.Println("# de elementos del array a partir del índice (CAPACIDAD): ", cap(slice))
 	//nil == a nulo
-	fmt.Println("valor cero:", slice == nil)
+	fmt.Println("valor nulo:", slice == nil)
 }
